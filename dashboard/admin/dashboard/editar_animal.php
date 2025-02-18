@@ -10,7 +10,7 @@ $consulta = new Consulta();
 // Editar animal
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar_animal'])) {
     $animal->editar($_POST['id'], $_POST['nome'], $_POST['especie'], $_POST['raca'], $_POST['idade'], $_POST['dono_nome'], $_POST['telefone']);
-    header("Location: index.php");
+    header("Location:deahboard_admin.php");
     exit();
 }
 

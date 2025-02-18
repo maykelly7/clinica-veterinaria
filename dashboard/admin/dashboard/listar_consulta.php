@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_consulta'])
                     ?>
                 </td>
                 <td><?= $animal_data['dono_nome'] ?></td>
-                <td><?= $row['data_consulta'] ?></td>
+                <td><?= $row['data'] ?></td> <!-- Corrigido para 'data' -->
                 <td><?= $row['descricao'] ?></td>
                 <td><?= $row['realizada'] ? '✅ Sim' : '❌ Não' ?></td>
                 <td>
