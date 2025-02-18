@@ -1,7 +1,7 @@
 <?php
 // listar_animais.php
 
-require_once 'classes/animal.php';
+require_once '../../../classes/animal.php';
 
 $animal = new Animal();
 $animais = $animal->listar();

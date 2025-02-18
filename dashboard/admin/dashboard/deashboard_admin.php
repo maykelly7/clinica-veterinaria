@@ -24,9 +24,9 @@ echo "Bem-vindo, Administrador!";
     <nav>
         <ul>
             <li><a href="listar_animais.php">Listar Animais</a></li>
-            <li><a href="deletar_animal.php">Deletar Animal</a></li>
-            <li><a href="../../logout.php">Sair</a></li>
-        </ul>
+            <li><a href="listar_consulta.php">Consultas</a></li>
+        
+       </ul>
     </nav>
 </body>
 </html>

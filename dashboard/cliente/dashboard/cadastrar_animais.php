@@ -9,9 +9,14 @@ if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo'] != 'cliente') {
     exit();
 }
 
-require_once '../../classes/Animal.php';
+require_once '../../../classes/Animal.php';
+require_once '../../../classes/Database.php'; // Certifique-se de incluir a classe Database
 
 $animal = new Animal();
+$db = new Database();
+
+// Busca as espécies do banco de dados
+$especies = $db->select('especies'); // Supondo que a tabela se chama 'especies'
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar_animal'])) {
     $nome = $_POST['nome'];
@@ -40,12 +45,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar_animal'])) {
     <h1>Cadastrar Animal</h1>
     <form method="POST">
         <input type="text" name="nome" placeholder="Nome" required>
-        <input type="text" name="especie" placeholder="Espécie" required>
+        
+        <!-- Campo de seleção para espécie -->
+        <label for="especie">Espécie:</label>
+        <select name="especie" id="especie" required>
+            <option value="">Selecione uma espécie</option>
+            <?php foreach ($especies as $especie): ?>
+                <option value="<?php echo $especie['nome']; ?>"><?php echo $especie['nome']; ?></option>
+            <?php endforeach; ?>
+        </select>
+
         <input type="text" name="raca" placeholder="Raça">
         <input type="number" name="idade" placeholder="Idade">
         <input type="text" name="telefone" placeholder="Telefone" required>
         <button type="submit" name="cadastrar_animal">Cadastrar</button>
     </form>
-    <a href="index.php">Voltar ao Dashboard</a>
+    <a href="deahboard_cliente.php">Voltar ao Dashboard</a>
 </body>
 </html>

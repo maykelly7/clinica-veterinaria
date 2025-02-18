@@ -23,9 +23,10 @@ echo "Bem-vindo, " . $_SESSION['usuario']['nome'] . "!";
     <h1>Dashboard do Cliente</h1>
     <nav>
         <ul>
-            <li><a href="cadastrar_animal.php">Cadastrar Animal</a></li>
+            <li><a href="cadastrar_animais.php">Cadastrar Animal</a></li>
             <li><a href="agendar_consulta.php">Agendar Consulta</a></li>
-            <li><a href="../../logout.php">Sair</a></li>
+            <li><a href="listar_animais.php">Listar Animais</a></li>
+        
         </ul>
     </nav>
 </body>

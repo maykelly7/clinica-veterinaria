@@ -9,13 +9,20 @@ if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo'] != 'admin') {
     exit();
 }
 
-require_once '../../classes/Consulta.php';
-require_once '../../classes/Animal.php';
+require_once '../../../classes/Consulta.php';
+require_once '../../../classes/Animal.php';
 
 $consulta = new Consulta();
 $consultas = $consulta->listar();
 
 $animal = new Animal();
+
+// Verifica se uma consulta foi marcada como realizada
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_consulta'])) {
+    $consulta->marcarComoRealizada($_POST['consulta_id']);
+    header("Location: listar_consultas.php"); // Recarrega a página para atualizar o status
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,27 +35,40 @@ $animal = new Animal();
 <body>
     <h1>Lista de Consultas</h1>
 
-    <table>
+    <table border="1">
         <tr>
             <th>ID</th>
             <th>Animal</th>
             <th>Dono</th>
             <th>Data da Consulta</th>
             <th>Descrição</th>
+            <th>Realizada</th>
+            <th>Ação</th>
         </tr>
         <?php while ($row = $consultas->fetch_assoc()): ?>
-        <tr>
-            <td><?= $row['id'] ?></td>
-            <td>
-                <?php
-                $animal_data = $animal->listar(['id' => $row['animal_id']])->fetch_assoc();
-                echo $animal_data['nome'] . " (" . $animal_data['especie'] . ")";
-                ?>
-            </td>
-            <td><?= $animal_data['dono_nome'] ?></td>
-            <td><?= $row['data_consulta'] ?></td>
-            <td><?= $row['descricao'] ?></td>
-        </tr>
+            <tr>
+                <td><?= $row['id'] ?></td>
+                <td>
+                    <?php
+                    $animal_data = $animal->listar(['id' => $row['animal_id']])->fetch_assoc();
+                    echo $animal_data['nome'] . " (" . $animal_data['especie'] . ")";
+                    ?>
+                </td>
+                <td><?= $animal_data['dono_nome'] ?></td>
+                <td><?= $row['data_consulta'] ?></td>
+                <td><?= $row['descricao'] ?></td>
+                <td><?= $row['realizada'] ? '✅ Sim' : '❌ Não' ?></td>
+                <td>
+                    <?php if (!$row['realizada']): ?>
+                        <form method="POST">
+                            <input type="hidden" name="consulta_id" value="<?= $row['id'] ?>">
+                            <button type="submit" name="confirmar_consulta">Confirmar</button>
+                        </form>
+                    <?php else: ?>
+                        <span>✔️ Concluída</span>
+                    <?php endif; ?>
+                </td>
+            </tr>
         <?php endwhile; ?>
     </table>
 

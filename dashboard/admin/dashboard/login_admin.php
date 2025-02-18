@@ -1,7 +1,7 @@
 <?php
 // admin/login/login_admin.php
 
-session_start();
+session_start(); // Inicia a sessão
 
 require_once '../../../classes/usuario.php';
 
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['usuario'] = $dadosUsuario;
 
         // Redireciona para o dashboard do administrador
-        header("Location: ../dashboard/index_admin.php");
+        header("Location: ../dashboard/index_admin.php"); // Caminho corrigido
         exit(); // Encerra o script após o redirecionamento
     } else {
         // Exibe uma mensagem de erro se o login falhar

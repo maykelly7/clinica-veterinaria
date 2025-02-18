@@ -3,7 +3,7 @@
 
 session_start();
 
-require_once '../../classes/Usuario.php';
+require_once '../../../classes/Usuario.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($dadosUsuario && $dadosUsuario['tipo'] == 'cliente') {
         $_SESSION['usuario'] = $dadosUsuario; // Armazena os dados do usuário na sessão
-        header("Location: ../dashboard/index.php"); // Redireciona para o dashboard do cliente
+        header("Location: ../dashboard/deahboard_cliente.php"); // Redireciona para o dashboard do cliente
         exit();
     } else {
         echo "Email ou senha incorretos, ou você não é um cliente!";

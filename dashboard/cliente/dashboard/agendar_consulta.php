@@ -9,8 +9,8 @@ if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['tipo'] != 'cliente') {
     exit();
 }
 
-require_once '../../classes/Consulta.php';
-require_once '../../classes/Animal.php';
+require_once '../../../classes/Consulta.php';
+require_once '../../../classes/Animal.php';
 
 $consulta = new Consulta();
 $animal = new Animal();
@@ -58,6 +58,6 @@ $animais = $animal->listar(['dono_nome' => $_SESSION['usuario']['nome']]);
         <button type="submit" name="agendar_consulta">Agendar Consulta</button>
     </form>
 
-    <a href="index.php">Voltar ao Dashboard</a>
+    <a href="deahboard_cliente.php">Voltar ao Dashboard</a>
 </body>
 </html>
