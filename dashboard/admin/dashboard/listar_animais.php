@@ -12,7 +12,7 @@ $animais = $animal->listar();
 <head>
     <meta charset="UTF-8">
     <title>Lista de Animais</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../../../public/listar_animal.css">
 </head>
 <body>
     <h1>Lista de Animais</h1>
@@ -45,7 +45,7 @@ $animais = $animal->listar();
         <?php endwhile; ?>
     </table>
 
-    <a href="cadastrar_animal.php">Cadastrar Novo Animal</a>
-    <a href="listar_consultas.php">Ver Consultas</a>
+
+    <a href="index_admin.php">voltar ao deahboard</a>
 </body>
 </html>

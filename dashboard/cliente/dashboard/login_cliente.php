@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login Cliente</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../public/login_cliente.css">
 </head>
 <body>
     <h1>Login Cliente</h1>
@@ -36,6 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="senha" placeholder="Senha" required>
         <button type="submit">Entrar</button>
     </form>
-    <p>Não tem uma conta? <a href="../cadastro/cadastrar_cliente.php">Cadastre-se</a></p>
+    <p>Não tem uma conta? <a href="cadastrar_cliente.php">Cadastre-se</a></p>
 </body>
 </html>

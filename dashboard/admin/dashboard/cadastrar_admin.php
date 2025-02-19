@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar_admin'])) {
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Administrador</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../public/cadastrar_adm.css">
 </head>
 <body>
     <h1>Cadastrar Administrador</h1>

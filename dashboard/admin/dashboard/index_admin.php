@@ -16,7 +16,7 @@ echo "Bem-vindo, Administrador!";
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../public/index_admin.css">
 </head>
 <body>
     <h1>Dashboard do Administrador</h1>
@@ -24,7 +24,7 @@ echo "Bem-vindo, Administrador!";
         <ul>
             <li><a href="listar_animais.php">Listar Animais</a></li>
             <li><a href="listar_consulta.php">Consultas</a></li>
-            <li><a href="../../logout.php">Sair</a></li>
+
         </ul>
     </nav>
 </body>

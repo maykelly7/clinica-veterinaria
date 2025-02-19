@@ -1,7 +1,7 @@
 <?php
 // cadastrar_usuario.php
 
-require_once 'classes/Usuario.php';
+require_once '../../../classes/Usuario.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Usuário</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../../../public/cadastrar_cliente.css">
 </head>
 <body>
     <h1>Cadastrar Usuário</h1>

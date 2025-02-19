@@ -17,7 +17,7 @@ echo "Bem-vindo, " . $_SESSION['usuario']['nome'] . "!";
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Cliente</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../public/deahboard_cliente.css">
 </head>
 <body>
     <h1>Dashboard do Cliente</h1>
@@ -25,7 +25,7 @@ echo "Bem-vindo, " . $_SESSION['usuario']['nome'] . "!";
         <ul>
             <li><a href="cadastrar_animais.php">Cadastrar Animal</a></li>
             <li><a href="agendar_consulta.php">Agendar Consulta</a></li>
-            <li><a href="listar_animais.php">Listar Animais</a></li>
+            
         
         </ul>
     </nav>

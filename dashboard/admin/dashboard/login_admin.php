@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login Administrador</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../public/login_admin.css">
+
 </head>
 <body>
     <h1>Login Administrador</h1>
@@ -40,6 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="senha" placeholder="Senha" required>
         <button type="submit">Entrar</button>
     </form>
-    <p>Não tem uma conta? <a href="../cadastro/cadastrar_admin.php">Cadastre-se</a></p>
+    <p>Não tem uma conta? <a href="cadastrar_admin.php">Cadastre-se</a></p>
 </body>
 </html>

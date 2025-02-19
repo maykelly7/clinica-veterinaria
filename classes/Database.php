@@ -17,7 +17,19 @@ class Database {
     }
 
     public function execute($query) {
-        return $this->conn->query($query);
+        try {
+            $result = $this->conn->query($query);
+            if (!$result) {
+                throw new mysqli_sql_exception($this->conn->error);
+            }
+            return $result;
+        } catch (mysqli_sql_exception $e) {
+            // Log do erro (opcional)
+            error_log("Database error: " . $e->getMessage());
+    
+            // Exibir mensagem amigável
+            die("Ocorreu um erro no banco de dados. Por favor, tente novamente mais tarde.");
+        }
     }
 
     public function insert($table, $data) {

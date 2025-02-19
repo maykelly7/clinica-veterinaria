@@ -1,21 +1,20 @@
 <?php
-// deletar_animal.php
+require_once '../../../classes/Database.php';
+require_once '../../../classes/animal.php';
 
-require_once '../../../classes/Animal.php';
+$database = new Database();
+$animal = new Animal($database);
 
-$animal = new Animal();
+$id_animal = $_GET['id']; // Supondo que o ID do animal seja passado via URL
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
-    $id = $_GET['id'];
+// 1. Deletar as consultas associadas ao animal
+$database->delete('consultas', ['animal_id' => $id_animal]);
 
-    if ($animal->deletar($id)) {
-        echo "Animal deletado com sucesso!";
-    } else {
-        echo "Erro ao deletar animal.";
-    }
+// 2. Deletar o animal
+$result = $database->delete('animais', ['id' => $id_animal]);
 
-    // Redirecionar para a lista de animais após deletar
-    header("Location: listar_animais.php");
-    exit();
+if ($result) {
+   header('location:listar_animais.php');
+} else {
+    echo "Erro ao deletar o animal.";
 }
-?>

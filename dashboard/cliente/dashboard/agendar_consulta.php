@@ -36,7 +36,7 @@ $animais = $animal->listar(['dono_nome' => $_SESSION['usuario']['nome']]);
 <head>
     <meta charset="UTF-8">
     <title>Agendar Consulta</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../public/agendar_consulta.css">
 </head>
 <body>
     <h1>Agendar Consulta</h1>

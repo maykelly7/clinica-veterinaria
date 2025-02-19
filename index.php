@@ -21,32 +21,23 @@ $animais = $animal->listar();
 <head>
     <meta charset="UTF-8">
     <title>Clínica Veterinária</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="public/index.css">
 </head>
 <body>
-    <h1>Clínica Veterinária</h1>
+    <h1>AnimalVet</h1>
 
     <!-- Links para as páginas de login -->
+
+    <div class="form-logo">
+        <img src="src/logo-clinica.webp" alt="">
+    </div>
+
     <div class="login-buttons">
         <a href="dashboard/admin/dashboard/login_admin.php" class="button">Login Adm</a>
         <a href="dashboard/cliente/dashboard/login_cliente.php" class="button">Login Cliente</a>
     </div>
 
-    <!-- Estilização básica para os botões -->
-    <style>
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+
+   
 </body>
 </html>

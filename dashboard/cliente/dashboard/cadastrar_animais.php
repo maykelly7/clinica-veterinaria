@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cadastrar_animal'])) {
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Animal</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../public/cadastrar_animal.css">
 </head>
 <body>
     <h1>Cadastrar Animal</h1>

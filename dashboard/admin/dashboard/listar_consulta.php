@@ -20,7 +20,7 @@ $animal = new Animal();
 // Verifica se uma consulta foi marcada como realizada
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_consulta'])) {
     $consulta->marcarComoRealizada($_POST['consulta_id']);
-    header("Location: listar_consultas.php"); // Recarrega a página para atualizar o status
+    header("location:listar_consulta.php"); // Recarrega a página para atualizar o status
     exit();
 }
 ?>
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_consulta'])
 <head>
     <meta charset="UTF-8">
     <title>Listar Consultas</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../../public/listar_consulta.css">
 </head>
 <body>
     <h1>Lista de Consultas</h1>
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_consulta'])
                 <td><?= $animal_data['dono_nome'] ?></td>
                 <td><?= $row['data'] ?></td> <!-- Corrigido para 'data' -->
                 <td><?= $row['descricao'] ?></td>
-                <td><?= $row['realizada'] ? '✅ Sim' : '❌ Não' ?></td>
+                <td><?= $row['realizada'] ? ' Sim' : ' Não' ?></td>
                 <td>
                     <?php if (!$row['realizada']): ?>
                         <form method="POST">
@@ -65,13 +65,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_consulta'])
                             <button type="submit" name="confirmar_consulta">Confirmar</button>
                         </form>
                     <?php else: ?>
-                        <span>✔️ Concluída</span>
+                        <span> Concluída</span>
                     <?php endif; ?>
                 </td>
             </tr>
         <?php endwhile; ?>
     </table>
 
-    <a href="index.php">Voltar ao Dashboard</a>
+    <a href="index_admin.php">Voltar ao Dashboard</a>
 </body>
 </html>

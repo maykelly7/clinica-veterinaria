@@ -10,7 +10,7 @@ $consulta = new Consulta();
 // Editar animal
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar_animal'])) {
     $animal->editar($_POST['id'], $_POST['nome'], $_POST['especie'], $_POST['raca'], $_POST['idade'], $_POST['dono_nome'], $_POST['telefone']);
-    header("Location:deahboard_admin.php");
+   header('location:index_admin.php');
     exit();
 }
 
@@ -36,7 +36,7 @@ $consultas = $consulta->listar(['animal_id' => $id]);
 <head>
     <meta charset="UTF-8">
     <title>Editar Animal</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../../../public/editar_animal.css">
     <style>
         table {
             width: 100%;
@@ -82,7 +82,7 @@ $consultas = $consulta->listar(['animal_id' => $id]);
                 <th>Data</th>
                 <th>Descrição</th>
                 <th>Status</th>
-                <th>Ações</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -92,14 +92,7 @@ $consultas = $consulta->listar(['animal_id' => $id]);
                     <td><?= $consulta_data['data'] ?></td>
                     <td><?= $consulta_data['descricao'] ?></td>
                     <td><?= $consulta_data['realizada'] ? 'Realizada' : 'Pendente' ?></td>
-                    <td>
-                        <?php if (!$consulta_data['realizada']): ?>
-                            <form method="POST" style="display:inline;">
-                                <input type="hidden" name="consulta_id" value="<?= $consulta_data['id'] ?>">
-                                <button type="submit" name="marcar_consulta">Marcar como realizada</button>
-                            </form>
-                        <?php endif; ?>
-                    </td>
+                    
                 </tr>
             <?php endwhile; ?>
         </tbody>
