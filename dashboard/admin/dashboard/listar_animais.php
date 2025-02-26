@@ -1,5 +1,4 @@
 <?php
-// listar_animais.php
 
 require_once '../../../classes/animal.php';
 
@@ -13,6 +12,7 @@ $animais = $animal->listar();
     <meta charset="UTF-8">
     <title>Lista de Animais</title>
     <link rel="stylesheet" href="../../../public/listar_animal.css">
+     
 </head>
 <body>
     <h1>Lista de Animais</h1>
@@ -20,6 +20,7 @@ $animais = $animal->listar();
     <table>
         <tr>
             <th>ID</th>
+            <th>Foto</th>
             <th>Nome</th>
             <th>Espécie</th>
             <th>Raça</th>
@@ -27,10 +28,18 @@ $animais = $animal->listar();
             <th>Dono</th>
             <th>Telefone</th>
             <th>Ações</th>
+
         </tr>
         <?php while ($row = $animais->fetch_assoc()): ?>
         <tr>
             <td><?= $row['id'] ?></td>
+            <td>
+                <?php if (!empty($row['foto_caminho'])): ?>
+                    <img src="<?= $row['foto_caminho'] ?>" alt="Foto do Animal" class="foto-animal">
+                <?php else: ?>
+                    Sem foto
+                <?php endif; ?>
+            </td>
             <td><?= $row['nome'] ?></td>
             <td><?= $row['especie'] ?></td>
             <td><?= $row['raca'] ?></td>
@@ -45,7 +54,6 @@ $animais = $animal->listar();
         <?php endwhile; ?>
     </table>
 
-
-    <a href="index_admin.php">voltar ao deahboard</a>
+    
 </body>
 </html>

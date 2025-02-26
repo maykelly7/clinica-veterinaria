@@ -116,6 +116,13 @@ a.consultas-link:active {
     transform: translateY(0);
 }
 
+
+.foto-animal {
+    width: 100px; /* Largura fixa */
+    height: auto; /* Altura automática para manter a proporção */
+    border-radius: 5px; /* Borda arredondada (opcional) */
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     table {
